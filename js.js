@@ -18,14 +18,10 @@ const canvas = document.getElementById("gameCanvas");
             food = { x: Math.floor(Math.random() * 20) * box, y: Math.floor(Math.random() * 20) * box };
             score = 0;
             document.getElementById("score").textContent = score;
-            
-            // Hide the reward image at the start
-            rewardImage.style.display = "none"; 
-            rewardImage.classList.add("d-none"); 
-            
+            rewardImage.style.display = "none";
+            hiddenWord.style.display = "none";
             clearInterval(gameInterval);
         }
-
 
         startButton.addEventListener("click", () => {
             startButton.style.display = "none";
@@ -88,10 +84,8 @@ const canvas = document.getElementById("gameCanvas");
             }
 
             if (score >= 20) {
-                    rewardImage.style.display = "block";
-                    rewardImage.classList.remove("d-none"); 
-                }
-
+                rewardImage.style.display = "block";
+            }
 
             if (head.x < 0 || head.x >= canvas.width || head.y < 0 || head.y >= canvas.height || snake.some(segment => segment.x === head.x && segment.y === head.y)) {
                 alert("Game Over! Your score: " + score);
