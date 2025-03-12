@@ -18,8 +18,8 @@ const canvas = document.getElementById("gameCanvas");
             food = { x: Math.floor(Math.random() * 20) * box, y: Math.floor(Math.random() * 20) * box };
             score = 0;
             document.getElementById("score").textContent = score;
-            rewardImage.style.display = "none";
-            hiddenWord.style.display = "none";
+            rewardImage.style.display = "block";
+            rewardImage.classList.remove("d-none");
             clearInterval(gameInterval);
         }
 
